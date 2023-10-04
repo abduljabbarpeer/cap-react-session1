@@ -21,6 +21,69 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
     <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root")
+
+      const SuperheroDetails = ({
+        name,
+        hobbies,
+        hasSuperPowers,
+        isMarried,
+        address,
+        age,
+      }) => {
+        return (
+          <div className="card">
+            <p>Name : {name}</p>
+            <p>Hobbies : {hobbies.join(", ")}</p>
+            <p>Has Super Powers : {hasSuperPowers.toString()}</p>
+            <div style={{ color: "red" }}>
+              <p>Street : {address.street}</p>
+              <p>City : {address.city}</p>
+              <p>Country : {address.country}</p>
+            </div>
+            <p>Age : {age}</p>
+          </div>
+        )
+      }
+
+      const element = (
+        <div className="container">
+          <SuperheroDetails
+            name="Batman"
+            hobbies={["Driving fancy cars", "Fighting crime"]}
+            hasSuperPowers={false}
+            address={{ street: "3rd Main", city: "Gotham", country: "USA" }}
+            age={25}
+          />
+          <SuperheroDetails
+            name="Superman"
+            hobbies={["Flying", "Collecting coins"]}
+            hasSuperPowers={true}
+            address={{
+              street: "4th Cross",
+              city: "Central city",
+              country: "USA",
+            }}
+            age={30}
+          />
+          <div
+            style={{
+              margin: "20px",
+              padding: "20px",
+              border: "1px solid cyan",
+              color: "darkcyan",
+              backgroundColor: "lightcyan",
+            }}
+          >
+            Here is a box with styling done using inline styling
+          </div>
+        </div>
+      )
+
+      const reactRoot = ReactDOM.createRoot(rootElement)
+
+      reactRoot.render(element)
+    </script>
   </body>
 </html>

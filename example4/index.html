@@ -16,6 +16,25 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
     <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root")
+
+      // const myClassName = "message"
+      // const myText = "Carpe Diem"
+
+      // const element = <div className={myClassName}>{myText}</div>
+      const myClassName = "message"
+      const myText = "Carpe Diem"
+      const props = {
+        className: myClassName,
+        children: myText,
+      }
+
+      const element = <div {...props} />
+
+      const reactRoot = ReactDOM.createRoot(rootElement)
+
+      reactRoot.render(element)
+    </script>
   </body>
 </html>
